@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@1,900&display=swap" rel="stylesheet">
+    <title>Weather WebApp</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+    <div class="top">
+        <h1>Weather Web App</h1>
+
+
+        <form action="/" method="POST">
+            
+            
+            <input type="text" name="city" class="bar" placeholder="Enter City Name...." autofocus>
+            <br>
+
+            <button type="submit" name="sub" class="but">Search</button>
+
+            <div class="big">
+
+                <div class="box">
+
+                    <select name="units" class="tem">
+                    <option value="imperial">Fahrenheit</option>
+                    <option value="standard">Kelvin</option>
+                    <option value="metric" selected>Celcius</option>
+                    </select>
+    
+                </div>
+                <div class="box2">
+                    <h3 class="loc"><i class="fa-sharp fa-solid fa-location-dot"></i> <%= cname %></h3>
+                </div>
+
+            </div>
+
+
+            
+            
+        </form>
+               
+        <p><%= yaa %></p>
+
+        <h3 class="date"> <%= cday %> </h3> 
+
+    </div>
+    <div class="info">
+        <div class="left">
+
+            <% if(pho=== "images/default.jpg"){ %>
+                <img class="def imgedi" src="<%= pho %>" alt="Weather Pic">
+            <% }else{ %>
+                <img class="imgedi" src="<%= pho %>" alt="Weather Pic">
+            <% } %>
+    
+        </div>
+
+        <div class="right">
+
+            <% if(yaa === "metric" && cname != "Invalid City"){ %>
+                <h3 class="head temp"> <%= cond %> &deg C</h3>
+            <% } else if(yaa === "standard" && cname != "Invalid City") { %>
+                <h3 class="head temp"> <%= cond %> K</h3>
+            <% } else if(yaa === "imperial" && cname != "Invalid City") { %>
+                <h3 class="head temp"> <%= cond %> &deg F</h3>
+            <% } %> 
+            <br>
+            <h4 class="head desc"> <%= det %> </h4>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
